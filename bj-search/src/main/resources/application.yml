@@ -1,0 +1,20 @@
+server:
+  port: 14000
+spring:
+  rabbitmq:
+    host: 192.168.74.111
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.74.111:9300
+  application:
+    name: bj-search
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

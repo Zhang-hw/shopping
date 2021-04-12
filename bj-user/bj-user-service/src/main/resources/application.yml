@@ -1,0 +1,25 @@
+server:
+  port: 16000
+spring:
+  rabbitmq:
+    host: 192.168.74.111
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+  redis:
+    host: 192.168.74.111
+    port: 6379
+  application:
+    name: bj-user
+  datasource:
+    url: jdbc:mysql://localhost:3306/leyou?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+mybatis:
+  type-aliases-package: com.bajie.user.pojo

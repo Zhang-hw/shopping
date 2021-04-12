@@ -1,0 +1,15 @@
+server:
+  port: 19000
+spring:
+  application:
+    name: bj-cart
+  redis:
+    host: 192.168.74.111
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+bajie:
+  jwt:
+    pubKeyPath: F:/tmp/rsa/rsa.pub # 公钥地址
+    cookieName: BJ_TOKEN # cookie的名称

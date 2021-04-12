@@ -1,0 +1,17 @@
+server:
+  port: 18000
+spring:
+  application:
+    name: bj-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+bajie:
+  jwt:
+    secret: bajie@Login(Auth}*^31)&zhang% # 登录校验的密钥
+    pubKeyPath: F:\\tmp\\rsa\\rsa.pub # 公钥地址
+    priKeyPath: F:\\tmp\\rsa\\rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieName: BJ_TOKEN
+    cookieMaxAge: 1800

@@ -1,0 +1,16 @@
+server:
+  port: 22000
+spring:
+  application:
+    name: bj-upload
+  servlet:
+    multipart:
+      max-file-size: 5MB # 限制文件上传的大小
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image: # 缩略图
+    width: 60
+    height: 60
+  tracker-list: # tracker地址
+    - 192.168.74.111:22122

@@ -1,0 +1,51 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: bj-gateway
+zuul:
+  prefix: /api
+  routes:
+    bj-order: /order/**
+    bj-item: /item/**
+    bj-search: /search/**
+    bj-user: /user/**
+    bj-auth: /auth/**
+    bj-upload: /upload/**
+    bj-page: /page/**
+    bj-cart: /cart/**
+  add-host-header: true #携带请求本身的head头信息
+  sensitive-headers:  #配置禁止使用的头信息，这里设置为null，否则set-cookie无效
+  retryable: true
+ribbon:
+  ConnectTimeout: 250 # 连接超时时间(ms)
+  ReadTimeout: 2000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 1 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 10000 # 熔断超时时长：10000ms
+server:
+  port: 11000
+bajie:
+  jwt:
+    pubKeyPath: F:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: BJ_TOKEN
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
+      - /api/page
+      - /api/cart
+      - /api/order

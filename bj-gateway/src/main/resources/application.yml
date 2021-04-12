@@ -1,0 +1,54 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: bj-item
+          uri: lb://bj-item
+          predicates:
+            - Path=/api/item/**
+          filters:
+            - RewritePath=/api/item/(?<segment>.*),/$\{segment}
+        - id: bj-upload
+          uri: lb://bj-upload
+          predicates:
+            - Path=/api/upload/**
+          filters:
+            - RewritePath=/api/upload/(?<segment>.*),/$\{segment}
+        - id: bj-search
+          uri: lb://bj-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - RewritePath=/api/search/(?<segment>.*),/$\{segment}
+        - id: bj-page
+          uri: lb://bj-page
+          predicates:
+            - Path=/api/page/**
+          filters:
+            - RewritePath=/api/page/(?<segment>.*),/$\{segment}
+        - id: bj-user
+          uri: lb://bj-user
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - RewritePath=/api/user/(?<segment>.*),/$\{segment}
+        - id: bj-sms
+          uri: lb://bj-sms
+          predicates:
+            - Path=/api/sms/**
+          filters:
+            - RewritePath=/api/sms/(?<segment>.*),/$\{segment}
+        - id: bj-auth
+          uri: lb://bj-auth
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/auth/(?<segment>.*),/$\{segment}
+
+  application:
+    name: bj-gateway
+server:
+  port: 11000
